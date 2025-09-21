@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-mergeDebugResources-45:\\layout\\fragment_breeds_list.xml",
+        "source": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-main-48:\\layout\\fragment_breeds_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-mergeDebugResources-45:\\layout\\item_breed.xml",
+        "source": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-main-48:\\layout\\item_breed.xml"
+    },
+    {
+        "merged": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-mergeDebugResources-45:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-main-48:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-mergeDebugResources-45:\\layout\\fragment_breed_detail.xml",
+        "source": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-main-48:\\layout\\fragment_breed_detail.xml"
+    },
+    {
+        "merged": "com.example.moviles2primerparcial.app-mergeDebugResources-45:/layout/activity_main.xml",
+        "source": "com.example.moviles2primerparcial.app-main-48:/layout/activity_main.xml"
+    }
+]

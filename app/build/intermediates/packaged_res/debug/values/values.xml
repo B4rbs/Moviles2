@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_refresh">Actualizar</string>
+    <string name="app_name">Moviles2 1er Parcial</string>
+    <string name="breed_lifespan">Life span: %1$s</string>
+    <string name="breed_name">Breed name</string>
+    <string name="breed_origin">Origin: %1$s</string>
+    <string name="breed_temperament">Temperament: %1$s</string>
+    <string name="cd_breed_photo">Foto de %1$s</string>
+    <string name="error_generic">Ocurrió un error</string>
+    <string name="image_not_available">Imagen no disponible.</string>
+    <string name="loading">Cargando…</string>
+    <string name="origin">Origin</string>
+    <string name="title_breeds">Razas de gatos</string>
+    <style name="Theme.M2Parcial" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+    </style>
+</resources>

@@ -1,0 +1,25 @@
+<resources>
+    <!-- App -->
+    <string name="app_name">Moviles2 1er Parcial</string>
+
+    <!-- Titles -->
+    <string name="title_breeds">Razas de gatos</string>
+
+    <!-- Actions -->
+    <string name="action_refresh">Actualizar</string>
+
+    <!-- Generic messages -->
+    <string name="loading">Cargando…</string>
+    <string name="error_generic">Ocurrió un error</string>
+    <string name="image_not_available">Imagen no disponible.</string>
+
+    <!-- Detail labels (kept simple for a student project) -->
+    <string name="breed_temperament">Temperament: %1$s</string>
+    <string name="breed_lifespan">Life span: %1$s</string>
+    <string name="breed_origin">Origin: %1$s</string>
+
+    <!-- Accessibility -->
+    <string name="cd_breed_photo">Foto de %1$s</string>
+    <string name="breed_name">Breed name</string>
+    <string name="origin">Origin</string>
+</resources>

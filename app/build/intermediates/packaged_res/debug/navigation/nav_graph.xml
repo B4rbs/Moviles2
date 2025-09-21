@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Single-activity navigation:
+  - Start at BreedsListFragment.
+  - Navigate to BreedDetailFragment with primitive arguments.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/breedsListFragment">
+
+    <fragment
+        android:id="@+id/breedsListFragment"
+        android:name="com.example.moviles2primerparcial.ui.breedslist.BreedsListFragment"
+        android:label="@string/title_breeds" />
+
+    <fragment
+        android:id="@+id/breedDetailFragment"
+        android:name="com.example.moviles2primerparcial.ui.breeddetail.BreedDetailFragment"
+        android:label="@string/app_name">
+
+        <!-- Args declared for documentation/preview purposes -->
+        <argument android:name="breedId" android:defaultValue="" />
+        <argument android:name="breedName" android:defaultValue="" />
+        <argument android:name="description" android:defaultValue="" />
+        <argument android:name="temperament" android:defaultValue="" />
+        <argument android:name="lifeSpan" android:defaultValue="" />
+        <argument android:name="origin" android:defaultValue="" />
+    </fragment>
+</navigation>
