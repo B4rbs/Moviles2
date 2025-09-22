@@ -1,4 +1,7 @@
-moviles2_1erParcial — Skeleton (runs out of the box)
+<img width="378" height="823" alt="Image" src="https://github.com/user-attachments/assets/d266fa5f-ebde-4cde-9a2a-444f0d59a766" />
+<img width="373" height="831" alt="Image" src="https://github.com/user-attachments/assets/d2901f79-0693-42ad-a8d6-319c3a31d911" />
+
+moviles2_1erParcial - Cat App
 
 Qué incluye:
 - 1 Activity con ViewBinding y un contenedor de fragments (FrameLayout)
