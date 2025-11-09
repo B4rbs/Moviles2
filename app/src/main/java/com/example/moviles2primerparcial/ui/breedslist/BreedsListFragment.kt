@@ -5,123 +5,146 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviles2primerparcial.R
-import com.example.moviles2primerparcial.data.remote.ServiceLocator
-import com.example.moviles2primerparcial.data.remote.dto.BreedDTO
+import com.example.moviles2primerparcial.data.models.remote.ServiceLocator
+import com.example.moviles2primerparcial.data.models.remote.dto.BreedDTO
 import com.example.moviles2primerparcial.databinding.FragmentBreedsListBinding
-import com.example.moviles2primerparcial.ui.breeddetail.BreedDetailFragment
+import com.example.moviles2primerparcial.ui.common.SpacingItemDecoration
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-/**
- * Displays a scrollable list of cat breeds.
- * - Creates and wires a RecyclerView adapter.
- * - Fetches data from the remote API.
- * - Navigates to detail when an item is clicked.
- */
 class BreedsListFragment : Fragment() {
 
     private var _binding: FragmentBreedsListBinding? = null
     private val binding get() = _binding!!
 
-    // Adapter that renders each row and forwards clicks via a lambda.
     private lateinit var adapter: BreedAdapter
 
+    // Fuente completa y filtro actual
+    private var allBreeds: List<BreedDTO> = emptyList()
+    private var currentQuery: String = ""
+
+    private var fetchJob: Job? = null
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentBreedsListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    /**
-     * Sets up RecyclerView, toolbar actions, and triggers the first load.
-     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        // Título fijo en la toolbar
+        binding.toolbar.title = getString(R.string.title_breeds)
 
-        // 1) Recycler setup: layout + adapter + a simple divider between rows.
-        adapter = BreedAdapter { breed -> openDetail(breed) }
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
-        )
-
-        // 2) Toolbar action: manual refresh.
-        binding.toolbar.setOnMenuItemClickListener { item ->
-            if (item.itemId == R.id.action_refresh) {
-                loadBreeds()
-                true
-            } else false
+        // RecyclerView
+        adapter = BreedAdapter { breed ->
+            // Navegación manual lista -> detalle
+            val args = Bundle().apply {
+                putString("breedId", breed.id)
+                putString("breedName", breed.name)
+                putString("origin", breed.origin)
+                putString("temperament", breed.temperament ?: "")
+                putString("lifeSpan", breed.lifeSpan ?: "")
+                putString("description", breed.description ?: "")
+            }
+            parentFragmentManager.beginTransaction()
+                .replace(
+                    R.id.fragment_container,
+                    com.example.moviles2primerparcial.ui.breeddetail.BreedDetailFragment().apply { arguments = args }
+                )
+                .addToBackStack(null)
+                .commit()
         }
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        )
+        val spacing = (12 * resources.displayMetrics.density).toInt()
+        binding.recyclerView.addItemDecoration(SpacingItemDecoration(spacing))
 
-        // 3) Initial load.
+        // Buscador, filtra localmente por nombre
+        configureSearch(binding.searchView)
+
+        // Carga inicial desde la API (una sola vez)
         loadBreeds()
     }
 
-    /**
-     * Fetches the breeds from the API and updates UI state accordingly.
-     * - Shows a progress indicator during the request.
-     * - Displays an error or empty state when needed.
-     */
+    private fun configureSearch(searchView: SearchView) {
+        searchView.queryHint = getString(R.string.search)
+        // Mostrar teclado listo para escribir
+        searchView.isIconified = false
+        searchView.clearFocus() // sacá esto si querés foco inicial
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searchView.clearFocus()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                currentQuery = newText.orEmpty()
+                applyFilter()
+                return true
+            }
+        })
+    }
+
+    private fun applyFilter() {
+        val q = currentQuery.trim().lowercase()
+        val filtered = if (q.isEmpty()) {
+            allBreeds
+        } else {
+            allBreeds.filter { it.name.lowercase().contains(q) }
+        }
+        adapter.setData(filtered)
+        binding.statusText.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
+        binding.statusText.text = if (q.isEmpty()) getString(R.string.loading) else getString(R.string.no_results)
+    }
+
+    private fun setLoading(loading: Boolean) {
+        binding.progressBar.visibility = if (loading) View.VISIBLE else View.GONE
+    }
+
+    private fun setError(msg: String) {
+        binding.statusText.visibility = View.VISIBLE
+        binding.statusText.text = msg
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+    }
+
     private fun loadBreeds() {
-        binding.progressBar.visibility = View.VISIBLE
-        binding.statusText.visibility = View.GONE
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            try {
-                val breeds: List<BreedDTO> = ServiceLocator.api.getBreeds()
-
-                binding.progressBar.visibility = View.GONE
-                if (breeds.isEmpty()) {
-                    // Empty state message (reuses a generic string).
-                    binding.statusText.visibility = View.VISIBLE
-                    binding.statusText.text = getString(R.string.image_not_available)
-                    adapter.setData(emptyList())
-                } else {
-                    // Push data to adapter (triggers list render).
-                    adapter.setData(breeds)
+        if (allBreeds.isNotEmpty()) {
+            applyFilter()
+            return
+        }
+        fetchJob?.cancel()
+        fetchJob = viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                try {
+                    setLoading(true)
+                    binding.statusText.visibility = View.GONE
+                    val breeds = ServiceLocator.api.getBreeds()
+                    allBreeds = breeds
+                    applyFilter()
+                } catch (e: Exception) {
+                    setError(e.message ?: "Error al cargar razas")
+                } finally {
+                    setLoading(false)
                 }
-            } catch (e: Exception) {
-                // Error state + toast with the error message for quick feedback.
-                binding.progressBar.visibility = View.GONE
-                binding.statusText.visibility = View.VISIBLE
-                binding.statusText.text = getString(R.string.error_generic)
-                Toast.makeText(
-                    requireContext(),
-                    "Error: ${e.message ?: "unknown"}",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         }
     }
 
-    /**
-     * Navigates to the detail fragment, passing all the required fields as arguments.
-     * Arguments are bundled explicitly to keep the transition self-contained.
-     */
-    private fun openDetail(b: BreedDTO) {
-        val args = Bundle().apply {
-            putString(BreedDetailFragment.ARG_BREED_ID, b.id.orEmpty())
-            putString(BreedDetailFragment.ARG_BREED_NAME, b.name.orEmpty())
-            putString(BreedDetailFragment.ARG_DESCRIPTION, b.description.orEmpty())
-            putString(BreedDetailFragment.ARG_TEMPERAMENT, b.temperament.orEmpty())
-            putString(BreedDetailFragment.ARG_LIFE_SPAN, b.lifeSpan.orEmpty())
-            putString(BreedDetailFragment.ARG_ORIGIN, b.origin.orEmpty())
-        }
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, BreedDetailFragment().apply { arguments = args })
-            .addToBackStack(null) // Enables back navigation with toolbar or system back.
-            .commit()
-    }
-
     override fun onDestroyView() {
+        _binding = null
         super.onDestroyView()
-        _binding = null // Avoid leaking the view binding after the view is destroyed.
     }
 }

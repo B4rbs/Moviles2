@@ -1,13 +1,12 @@
-package com.example.moviles2primerparcial.data.remote.dto
-
-import com.squareup.moshi.Json
+package com.example.moviles2primerparcial.data.models.remote.dto
 
 data class BreedDTO(
-    val id: String? = null,
-    val name: String? = null,
-    val origin: String? = null,
-    val temperament: String? = null,
-    @Json(name = "life_span") val lifeSpan: String? = null,
-    val description: String? = null
+    val id: String,
+    val name: String,
+    val origin: String,
+    val temperament: String?,
+    val lifeSpan: String?,
+    val description: String?,
+    val imageUrl: String?
 )
 

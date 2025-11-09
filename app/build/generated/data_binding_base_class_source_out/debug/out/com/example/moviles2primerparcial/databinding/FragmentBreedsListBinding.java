@@ -4,11 +4,12 @@ package com.example.moviles2primerparcial.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -20,7 +21,7 @@ import java.lang.String;
 
 public final class FragmentBreedsListBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final CoordinatorLayout rootView;
 
   @NonNull
   public final ProgressBar progressBar;
@@ -29,24 +30,33 @@ public final class FragmentBreedsListBinding implements ViewBinding {
   public final RecyclerView recyclerView;
 
   @NonNull
+  public final CoordinatorLayout root;
+
+  @NonNull
+  public final SearchView searchView;
+
+  @NonNull
   public final TextView statusText;
 
   @NonNull
   public final MaterialToolbar toolbar;
 
-  private FragmentBreedsListBinding(@NonNull LinearLayout rootView,
+  private FragmentBreedsListBinding(@NonNull CoordinatorLayout rootView,
       @NonNull ProgressBar progressBar, @NonNull RecyclerView recyclerView,
-      @NonNull TextView statusText, @NonNull MaterialToolbar toolbar) {
+      @NonNull CoordinatorLayout root, @NonNull SearchView searchView, @NonNull TextView statusText,
+      @NonNull MaterialToolbar toolbar) {
     this.rootView = rootView;
     this.progressBar = progressBar;
     this.recyclerView = recyclerView;
+    this.root = root;
+    this.searchView = searchView;
     this.statusText = statusText;
     this.toolbar = toolbar;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -83,6 +93,14 @@ public final class FragmentBreedsListBinding implements ViewBinding {
         break missingId;
       }
 
+      CoordinatorLayout root = (CoordinatorLayout) rootView;
+
+      id = R.id.searchView;
+      SearchView searchView = ViewBindings.findChildViewById(rootView, id);
+      if (searchView == null) {
+        break missingId;
+      }
+
       id = R.id.statusText;
       TextView statusText = ViewBindings.findChildViewById(rootView, id);
       if (statusText == null) {
@@ -95,8 +113,8 @@ public final class FragmentBreedsListBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentBreedsListBinding((LinearLayout) rootView, progressBar, recyclerView,
-          statusText, toolbar);
+      return new FragmentBreedsListBinding((CoordinatorLayout) rootView, progressBar, recyclerView,
+          root, searchView, statusText, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

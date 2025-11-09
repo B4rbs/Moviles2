@@ -16,8 +16,8 @@
         "source": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-main-48:\\drawable\\ic_arrow_back_24.xml"
     },
     {
-        "merged": "com.example.moviles2primerparcial.app-merged_res-46:/layout_activity_main.xml.flat",
-        "source": "com.example.moviles2primerparcial.app-main-48:/layout/activity_main.xml"
+        "merged": "com.example.moviles2primerparcial.app-merged_res-46:/layout_fragment_breeds_list.xml.flat",
+        "source": "com.example.moviles2primerparcial.app-main-48:/layout/fragment_breeds_list.xml"
     },
     {
         "merged": "C:\\Users\\maria\\.gradle\\daemon\\8.12\\com.example.moviles2primerparcial.app-merged_res-46:\\layout_activity_main.xml.flat",

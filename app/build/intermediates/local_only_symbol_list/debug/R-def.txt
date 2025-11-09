@@ -9,6 +9,8 @@ id ivPhoto
 id nav_graph
 id progressBar
 id recyclerView
+id root
+id searchView
 id statusText
 id toolbar
 id tvDescription
@@ -35,6 +37,10 @@ string cd_breed_photo
 string error_generic
 string image_not_available
 string loading
+string no_description
+string no_results
 string origin
+string search
 string title_breeds
-style Theme.M2Parcial
+string unknown
+style Theme.Moviles2PrimerParcial

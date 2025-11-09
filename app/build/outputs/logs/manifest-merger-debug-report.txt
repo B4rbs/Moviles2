@@ -5,12 +5,12 @@ INJECTED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\m
 INJECTED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\main\AndroidManifest.xml:6:1-25:12
 INJECTED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\main\AndroidManifest.xml:6:1-25:12
 MERGED from [androidx.databinding:viewbinding:8.2.2] C:\Users\maria\.gradle\caches\8.12\transforms\78c232e4289724daa5dcaf0077c535f1\transformed\jetified-viewbinding-8.2.2\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigation:navigation-runtime-android:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\9cf93032b1bf7bf412703de341643b02\transformed\jetified-navigation-runtime-release\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-common-android:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\ab38039e2489e8bcf6a5f74ed8340357\transformed\jetified-navigation-common-release\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-fragment:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\87318964a5e990ba86482e49f3e1398f\transformed\navigation-fragment-2.9.4\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\5b7d5d0420a9da11d7615cf30465480c\transformed\navigation-fragment-ktx-2.9.4\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigation:navigation-ui-ktx:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\a0f6f1351accbfc9703428bda1396163\transformed\navigation-ui-ktx-2.9.4\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigation:navigation-ui:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\bc460391f9fd02512ec91c5fe200c123\transformed\navigation-ui-2.9.4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\910b5dded1dd388f6bec1dd5f7836390\transformed\jetified-navigation-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-android:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\12f7863fe0c5cd2cdf0201657890558e\transformed\jetified-navigation-common-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\b7d5b18c1553a4a76d2f139baf033d72\transformed\navigation-fragment-2.9.6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\36fa06e0eabe55637127036d175b55ad\transformed\navigation-fragment-ktx-2.9.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\89d7913675f4210a3f00d456b1678c99\transformed\navigation-ui-ktx-2.9.6\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-ui:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\9975fe5fcab0fa42d7e534f7f3968e15\transformed\navigation-ui-2.9.6\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\maria\.gradle\caches\8.12\transforms\ddd504edd2b555abf5123eb003bb647e\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\maria\.gradle\caches\8.12\transforms\4f5d5516cca22e7c4fd78c77e3285066\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [io.coil-kt:coil:2.6.0] C:\Users\maria\.gradle\caches\8.12\transforms\ac03a0f3080c60e43b5dc1d003159596\transformed\jetified-coil-2.6.0\AndroidManifest.xml:2:1-7:12
@@ -109,7 +109,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\maria\.gradle\cach
 	android:allowBackup
 		ADDED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\main\AndroidManifest.xml:14:9-68
+		ADDED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\main\AndroidManifest.xml:14:9-59
 activity#com.example.moviles2primerparcial.MainActivity
 ADDED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\main\AndroidManifest.xml:15:9-23:20
 	android:exported
@@ -132,18 +132,18 @@ INJECTED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\m
 INJECTED from C:\Users\maria\AndroidStudioProjects\moviles2_1erParcial\app\src\main\AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:8.2.2] C:\Users\maria\.gradle\caches\8.12\transforms\78c232e4289724daa5dcaf0077c535f1\transformed\jetified-viewbinding-8.2.2\AndroidManifest.xml:5:5-44
 MERGED from [androidx.databinding:viewbinding:8.2.2] C:\Users\maria\.gradle\caches\8.12\transforms\78c232e4289724daa5dcaf0077c535f1\transformed\jetified-viewbinding-8.2.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-runtime-android:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\9cf93032b1bf7bf412703de341643b02\transformed\jetified-navigation-runtime-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-runtime-android:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\9cf93032b1bf7bf412703de341643b02\transformed\jetified-navigation-runtime-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common-android:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\ab38039e2489e8bcf6a5f74ed8340357\transformed\jetified-navigation-common-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common-android:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\ab38039e2489e8bcf6a5f74ed8340357\transformed\jetified-navigation-common-release\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-fragment:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\87318964a5e990ba86482e49f3e1398f\transformed\navigation-fragment-2.9.4\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-fragment:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\87318964a5e990ba86482e49f3e1398f\transformed\navigation-fragment-2.9.4\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\5b7d5d0420a9da11d7615cf30465480c\transformed\navigation-fragment-ktx-2.9.4\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-fragment-ktx:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\5b7d5d0420a9da11d7615cf30465480c\transformed\navigation-fragment-ktx-2.9.4\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-ui-ktx:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\a0f6f1351accbfc9703428bda1396163\transformed\navigation-ui-ktx-2.9.4\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-ui-ktx:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\a0f6f1351accbfc9703428bda1396163\transformed\navigation-ui-ktx-2.9.4\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-ui:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\bc460391f9fd02512ec91c5fe200c123\transformed\navigation-ui-2.9.4\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-ui:2.9.4] C:\Users\maria\.gradle\caches\8.12\transforms\bc460391f9fd02512ec91c5fe200c123\transformed\navigation-ui-2.9.4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\910b5dded1dd388f6bec1dd5f7836390\transformed\jetified-navigation-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\910b5dded1dd388f6bec1dd5f7836390\transformed\jetified-navigation-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\12f7863fe0c5cd2cdf0201657890558e\transformed\jetified-navigation-common-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\12f7863fe0c5cd2cdf0201657890558e\transformed\jetified-navigation-common-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\b7d5b18c1553a4a76d2f139baf033d72\transformed\navigation-fragment-2.9.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\b7d5b18c1553a4a76d2f139baf033d72\transformed\navigation-fragment-2.9.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\36fa06e0eabe55637127036d175b55ad\transformed\navigation-fragment-ktx-2.9.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\36fa06e0eabe55637127036d175b55ad\transformed\navigation-fragment-ktx-2.9.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\89d7913675f4210a3f00d456b1678c99\transformed\navigation-ui-ktx-2.9.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui-ktx:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\89d7913675f4210a3f00d456b1678c99\transformed\navigation-ui-ktx-2.9.6\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-ui:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\9975fe5fcab0fa42d7e534f7f3968e15\transformed\navigation-ui-2.9.6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-ui:2.9.6] C:\Users\maria\.gradle\caches\8.12\transforms\9975fe5fcab0fa42d7e534f7f3968e15\transformed\navigation-ui-2.9.6\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\maria\.gradle\caches\8.12\transforms\ddd504edd2b555abf5123eb003bb647e\transformed\material-1.12.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\maria\.gradle\caches\8.12\transforms\ddd504edd2b555abf5123eb003bb647e\transformed\material-1.12.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\maria\.gradle\caches\8.12\transforms\4f5d5516cca22e7c4fd78c77e3285066\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41

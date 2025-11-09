@@ -1,4 +1,4 @@
-package com.example.moviles2primerparcial.data.remote
+package com.example.moviles2primerparcial.data.models.remote
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -7,30 +7,43 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-/** Centralizes Retrofit/Moshi/OkHttp so the fragments stay clean.*/
+/**
+ * Simple DI-less service locator for small apps.
+ * Exposes a Repository as `api` with a method getBreeds().
+ */
 object ServiceLocator {
 
     private const val BASE_URL = "https://api.thecatapi.com/v1/"
 
-    private val logging = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BASIC
+    private val moshi: Moshi by lazy {
+        Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
     }
 
-    private val client: OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(logging)
-        .build()
+    private val okHttp: OkHttpClient by lazy {
+        val logging = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BASIC
+        }
+        OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
+    }
 
-    // Enable KotlinJsonAdapterFactory so Moshi can parse Kotlin data classes properly.
-    private val moshi: Moshi = Moshi.Builder()
-        .add(KotlinJsonAdapterFactory())
-        .build()
+    private val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(okHttp)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+    }
 
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(client)
-        .addConverterFactory(MoshiConverterFactory.create(moshi))
-        .build()
+    private val catApi: CatApi by lazy {
+        retrofit.create(CatApi::class.java)
+    }
 
-    val api: CatApiService by lazy { retrofit.create(CatApiService::class.java) }
+    /** Exposed entry point from UI layer */
+    val api: Repository by lazy { Repository(catApi) }
 }
+
 

@@ -1,6 +1,6 @@
 package com.example.moviles2primerparcial.data.remote
 
-import com.example.moviles2primerparcial.data.remote.dto.BreedDTO
+import com.example.moviles2primerparcial.data.models.remote.dto.BreedDTO
 import com.example.moviles2primerparcial.data.remote.dto.CatImageDTO
 import retrofit2.http.GET
 import retrofit2.http.Query

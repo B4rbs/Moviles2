@@ -7,13 +7,18 @@
 
     <!-- Actions -->
     <string name="action_refresh">Actualizar</string>
+    <string name="search">Buscar</string>
 
     <!-- Generic messages -->
     <string name="loading">Cargando…</string>
     <string name="error_generic">Ocurrió un error</string>
     <string name="image_not_available">Imagen no disponible.</string>
+    <string name="no_results">Sin resultados</string>
+    <string name="unknown">Desconocido</string>
+    <string name="no_description">Sin descripción</string>
 
-    <!-- Detail labels (kept simple for a student project) -->
+
+    <!-- Detail labels -->
     <string name="breed_temperament">Temperament: %1$s</string>
     <string name="breed_lifespan">Life span: %1$s</string>
     <string name="breed_origin">Origin: %1$s</string>

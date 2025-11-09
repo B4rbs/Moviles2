@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviles2primerparcial.R
-import com.example.moviles2primerparcial.data.remote.dto.BreedDTO
+import com.example.moviles2primerparcial.data.models.remote.dto.BreedDTO
 
 /**
  * RecyclerView adapter responsible for:
